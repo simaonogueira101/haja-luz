@@ -19,11 +19,11 @@
 			<a href="https://www.clicktorelease.com/code/bumpy-metaballs/#" id="switchMaterial" class="button"></a></p>
 			</div>
 
-			<script src="./Bumpy Metaballs_files/Three.js"></script>
-			<script src="./Bumpy Metaballs_files/MarchingCubes.js"></script>
-			<script src="./Bumpy Metaballs_files/Stats.js"></script>
-			<script src="./Bumpy Metaballs_files/ThreeRenderStats.js"></script>
-			<script src="./Bumpy Metaballs_files/ImprovedNoise.js"></script>
+			<script src="./js/Three.js"></script>
+			<script src="./js/MarchingCubes.js"></script>
+			<script src="./js/Stats.js"></script>
+			<script src="./js/ThreeRenderStats.js"></script>
+			<script src="./js/ImprovedNoise.js"></script>
 
 			<script type="x-shader/x-vertex" id="sphere-vs">
 				void main() {
@@ -376,7 +376,7 @@ function init() {
 
 
   // create the particle variables
-  var particleCount = 2500,
+  var particleCount =5500,
       particles = new THREE.Geometry(),
       pMaterial = new THREE.ParticleBasicMaterial({
         color: 0x1a1a1a,
@@ -388,9 +388,9 @@ function init() {
 
     // create a particle with random
     // position values, -250 -> 250
-    var pX = Math.random() * 500 - 250,
-        pY = Math.random() * 500 - 250,
-        pZ = Math.random() * 500 - 250,
+    var pX = Math.random() * 1000 - 500,
+        pY = Math.random() * 1000 - 500,
+        pZ = Math.random() * 1000 - 500,
         particle = new THREE.Vertex(
           new THREE.Vector3(pX, pY, pZ)
         );
