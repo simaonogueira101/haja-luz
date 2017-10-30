@@ -11,7 +11,7 @@
 			<div id="container">
 				<div class="container-overlay" style="background: rgba(0,0,0,0); z-index: 200;">
 					<div class="container-center">
-						<a class="start-button" onclick="startButton(); backMusic();" id="start" href="#">
+						<a class="start-button" onclick="startButton(); backMusic();" id="start">
 							<p>haja luz?</p>
 						</a>
 					</div>
@@ -66,7 +66,6 @@
 					vec3 base = color;
 					base += vec3( pow( v, 2. ) );
 					gl_FragColor = vec4( base * vec3( vignette ) + vec3( n ), 1. );
-
 				}
 			</script>
 
@@ -194,5 +193,6 @@
 			</script>
 
 			<script src="js/sequence.js"></script>
+			<script src='js/threex.domevents.js'></script>
 	</body>
 </html>
