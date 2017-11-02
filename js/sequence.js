@@ -176,7 +176,12 @@ function init() {
             },
             color: { 
                 type: 'c',
-                value: new THREE.Color(0x969696)
+                // Blob Color. Lightest color is 0x1a1a1a, darkest is 0x111111
+                value: new THREE.Color(0x1a1a1a)
+            },
+            glowColor: {
+              type: "c",
+              value: new THREE.Color(0xffff00)
             }
         },
         vertexShader: document.getElementById('vertexShader').textContent,
@@ -208,7 +213,8 @@ function init() {
             },
             color: { 
                 type: 'c',
-                value: new THREE.Color(0xdedede)
+                // Background Color. Lightest color is 0x0a0a0a, darkest is 0x#111111
+                value: new THREE.Color(0x0a0a0a)
             },
         },
         vertexShader: document.getElementById('sphere-vs').textContent,
@@ -224,7 +230,7 @@ function init() {
     var particleCount = 4500,
         particles = new THREE.Geometry(),
         pMaterial = new THREE.ParticleBasicMaterial({
-            color: 0x1a1a1a,
+            color: 0x111111,
             size: 1.5
         });
 
@@ -528,26 +534,49 @@ function backMusic() {
 
 function startRender() {
 
+    var elapsedTime = clock.getElapsedTime();
+
     requestAnimationFrame(startButton);
 
     updateCubes(effect, .0005 * (Date.now() - start), numBlobs);
 
     // Renders luz text, exported from blender as .json
-    var object;
     var loader = new THREE.JSONLoader();
 
-    var loader = new THREE.JSONLoader();
-    loader.load('json/luz.json', function(geometry) {
-        var mesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial());
-        var scale = 10;
-        mesh.scale.x = scale;
-        mesh.scale.y = scale;
-        mesh.scale.z = scale;
-        mesh.position.x = 50;
-        mesh.position.y = 50;
-        mesh.position.z = 10;
-        scene.add(mesh);
-    });
+    var luzCount = 4;
+    var luzMesh = [];
+    var materialOne = new THREE.MeshBasicMaterial( { color: 0xffffff } );
+    for (var i = 0; i < luzCount; i++) {
+      loader.load('json/luz.json', function(geometry) {
+          luzMesh[i] = new THREE.Mesh(geometry, materialOne);
+          var scale = 10;
+          luzMesh[i].scale.x = scale;
+          luzMesh[i].scale.y = scale;
+          luzMesh[i].scale.z = scale;
+          luzMesh[i].position.x = Math.random() * 1000 - 400;
+          luzMesh[i].position.y = Math.random() * 1000 - 400;
+          luzMesh[i].position.z = Math.random() * 1000 - 400;
+          luzMesh[i].rotation.y = Math.random() * 180;
+          scene.add(luzMesh[i]);
+      });
+    }
+
+
+
+    // Changes Colors
+    /*
+    setTimeout(function() {
+        if( luzMeshOne ) {
+          materialOne.color.setHex(0xffffff);
+        }
+        if( material ) {
+          material.uniforms.color.value = new THREE.Color(0xffffff);
+        }
+        if( sphereMaterial ) {
+          sphereMaterial.uniforms.color.value = new THREE.Color(0xffffff);
+        }
+    }, 15000);
+    */
 
     nlat = Math.max(-85, Math.min(85, nlat));
 
@@ -561,8 +590,6 @@ function startRender() {
     camera.position.x = scene.position.x + distance * Math.sin(phi) * Math.cos(theta);
     camera.position.y = scene.position.y + distance * Math.cos(phi);
     camera.position.z = scene.position.z + distance * Math.sin(phi) * Math.sin(theta);
-
-    var elapsedTime = clock.getElapsedTime();
 
     camera.position.x = scene.position.x - distance * Math.cos(0.1 * elapsedTime);
     camera.position.z = scene.position.z - distance * Math.sin(0.1 * elapsedTime);

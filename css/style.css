@@ -16,7 +16,7 @@ a {
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0);
   z-index: 100;
   display: flex;
   user-select: none;
