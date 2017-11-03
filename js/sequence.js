@@ -532,6 +532,102 @@ function backMusic() {
     }, 6000);
 }
 
+function eEleDisse() {
+  setTimeout(function() {
+    var elapsedTime = clock.getElapsedTime();
+
+    if ( elapsedTime < 16) {
+      var loader = new THREE.JSONLoader();
+      var material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
+
+      loader.load('json/e-ele-disse.json', function(geometry) {
+          mesh = new THREE.Mesh(geometry, material);
+          var scale = 20;
+          mesh.scale.x = scale;
+          mesh.scale.y = scale;
+          mesh.scale.z = scale;
+          mesh.position.x = 100;
+          mesh.position.y = 60;
+          mesh.position.z = 50;
+          mesh.rotation.y = 90;
+          scene.add(mesh);
+      });
+    }
+  }, 15000);
+}
+
+function eleDisse() {
+  setTimeout(function() {
+    var elapsedTime = clock.getElapsedTime();
+
+    if ( elapsedTime < 20) {
+      var loader = new THREE.JSONLoader();
+      var material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
+
+      loader.load('json/ele-disse.json', function(geometry) {
+          mesh = new THREE.Mesh(geometry, material);
+          var scale = 20;
+          mesh.scale.x = scale;
+          mesh.scale.y = scale;
+          mesh.scale.z = scale;
+          mesh.position.x = 120;
+          mesh.position.y = 40;
+          mesh.position.z = 80;
+          mesh.rotation.y = 10;
+          scene.add(mesh);
+      });
+    }
+  }, 19000);
+}
+
+function disseHaja() {
+  setTimeout(function() {
+    var elapsedTime = clock.getElapsedTime();
+
+    if ( elapsedTime < 25) {
+      var loader = new THREE.JSONLoader();
+      var material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
+
+      loader.load('json/disse-haja.json', function(geometry) {
+          mesh = new THREE.Mesh(geometry, material);
+          var scale = 20;
+          mesh.scale.x = scale;
+          mesh.scale.y = scale;
+          mesh.scale.z = scale;
+          mesh.position.x = 100;
+          mesh.position.y = 20;
+          mesh.position.z = 50;
+          mesh.rotation.y = 60;
+          scene.add(mesh);
+      });
+    }
+  }, 24000);
+}
+
+function luz() {
+  setTimeout(function() {
+    var elapsedTime = clock.getElapsedTime();
+
+    if ( elapsedTime < 31) {
+      var loader = new THREE.JSONLoader();
+      var material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
+
+      loader.load('json/luz.json', function(geometry) {
+          mesh = new THREE.Mesh(geometry, material);
+          var scale = 20;
+          mesh.scale.x = scale;
+          mesh.scale.y = scale;
+          mesh.scale.z = scale;
+          mesh.position.x = 110;
+          mesh.position.y = 0;
+          mesh.position.z = 50;
+          mesh.rotation.y = 65;
+          scene.add(mesh);
+      });
+    }
+  }, 30000);
+}
+
 function startRender() {
 
     var elapsedTime = clock.getElapsedTime();
@@ -540,34 +636,52 @@ function startRender() {
 
     updateCubes(effect, .0005 * (Date.now() - start), numBlobs);
 
-    // Renders luz text, exported from blender as .json
-    var loader = new THREE.JSONLoader();
+    // Renders "luz" text, exported from blender as .json
 
-    var luzCount = 4;
-    var luzMesh = [];
-    var materialOne = new THREE.MeshBasicMaterial( { color: 0xffffff } );
-    for (var i = 0; i < luzCount; i++) {
-      loader.load('json/luz.json', function(geometry) {
-          luzMesh[i] = new THREE.Mesh(geometry, materialOne);
-          var scale = 10;
-          luzMesh[i].scale.x = scale;
-          luzMesh[i].scale.y = scale;
-          luzMesh[i].scale.z = scale;
-          luzMesh[i].position.x = Math.random() * 1000 - 400;
-          luzMesh[i].position.y = Math.random() * 1000 - 400;
-          luzMesh[i].position.z = Math.random() * 1000 - 400;
-          luzMesh[i].rotation.y = Math.random() * 180;
-          scene.add(luzMesh[i]);
-      });
+    var loader = new THREE.JSONLoader();
+    var materialLuz = new THREE.MeshBasicMaterial( { color: 0x000000 } );
+
+    if ( elapsedTime < 120 ) {
+      for( var i = 0 ; i < 4 ; i++) {
+        loader.load('json/luz.json', function(geometry) {
+            var luzMesh = new THREE.Mesh(geometry, materialLuz);
+            var scale = 10;
+            luzMesh.scale.x = scale;
+            luzMesh.scale.y = scale;
+            luzMesh.scale.z = scale;
+            luzMesh.position.x = Math.random() * 1000 - 400;
+            luzMesh.position.y = Math.random() * 1000 - 400;
+            luzMesh.position.z = Math.random() * 1000 - 400;
+            luzMesh.rotation.y = Math.random() * 180;
+            scene.add(luzMesh);
+
+            setTimeout(function() {
+              if( luzMesh ) {
+                materialLuz.color.setHex(0xffffff);
+              }
+              if( material ) {
+                material.uniforms.color.value = new THREE.Color(0xffffff);
+              }
+              if( sphereMaterial ) {
+                sphereMaterial.uniforms.color.value = new THREE.Color(0xffffff);
+              }
+            }, 30000);
+        });
+      }
     }
+
+    eEleDisse();
+    eleDisse();
+    disseHaja();
+    luz();
 
 
 
     // Changes Colors
     /*
     setTimeout(function() {
-        if( luzMeshOne ) {
-          materialOne.color.setHex(0xffffff);
+        if( luzMesh ) {
+          materialLuz.color.setHex(0xffffff);
         }
         if( material ) {
           material.uniforms.color.value = new THREE.Color(0xffffff);
