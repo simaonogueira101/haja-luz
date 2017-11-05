@@ -86,7 +86,7 @@ a {
 }
 
 .second-flash {
-  animation: secondFlash 70s;
+  animation: secondFlash 75s;
 }
 
 .container-text {
@@ -100,6 +100,13 @@ a {
 
 .invisible {
   animation: text 10s;
+}
+
+.indication {
+  font-weight: bold;
+  font-size: 0.75rem;
+  padding: 12px;
+  background: orange;
 }
 
 .invisible-long {

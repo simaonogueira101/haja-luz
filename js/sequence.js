@@ -527,7 +527,6 @@ function backMusic() {
 
     setTimeout(function() {
         voices.play();
-        backMusic.volume = 0.2;
     }, 44800);
 }
 
@@ -689,7 +688,7 @@ function startRender() {
 
     setTimeout(function() {
         document.getElementById('text4').classList.add('invisible');
-    }, 201000);
+    }, 216000);
 
 
 
