@@ -29,6 +29,7 @@ a {
   top: 0;
   left: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -45,7 +46,7 @@ a {
   cursor: pointer;
 }
 
-.start-button p:hover {
+.start-button:hover p {
   font-size: 0.8rem;
   transition: font-size 0.2s;
 }
@@ -69,4 +70,69 @@ a {
   background: white;
   z-index: 101;
   user-select: none;
+}
+
+.container-overlayTwo {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #ffffff;
+  z-index: 100;
+  display: flex;
+  user-select: none;
+  opacity: 0;
+}
+
+.second-flash {
+  animation: secondFlash 70s;
+}
+
+.container-text {
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+.container-text {
+  opacity: 0;
+}
+
+.invisible {
+  animation: text 10s;
+}
+
+.invisible-long {
+  animation: text 20s;
+}
+
+.visible {
+  opacity: 1;
+}
+
+@keyframes secondFlash {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes text {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100%; {
+    opacity: 0;
+  }
 }

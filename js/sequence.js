@@ -16,8 +16,8 @@ var loading = document.getElementById('loading');
 var container, renderer, scene, camera, mesh, fov = 90,
     material, sphereMaterial;
 var start = Date.now();
-var distance = 1500,
-    ndistance = 180;
+var distance = 3500,
+    ndistance = 300;
 
 window.addEventListener('load', init);
 
@@ -522,21 +522,20 @@ function startButton() {
 
 function backMusic() {
     var backMusic = new Audio("assets/sounds/beethoven.mp3");
-    var voices = new Audio("assets/sounds/voices.mp3");
+    var voices = new Audio("assets/sounds/grandpa.mp3");
     backMusic.play();
-    voices.volume = 0.05;
 
     setTimeout(function() {
-        // voices.play();
-        backMusic.volume = 1;
-    }, 6000);
+        voices.play();
+        backMusic.volume = 0.2;
+    }, 44800);
 }
 
 function eEleDisse() {
   setTimeout(function() {
     var elapsedTime = clock.getElapsedTime();
 
-    if ( elapsedTime < 16) {
+    if ( elapsedTime < 52) {
       var loader = new THREE.JSONLoader();
       var material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
 
@@ -553,14 +552,14 @@ function eEleDisse() {
           scene.add(mesh);
       });
     }
-  }, 15000);
+  }, 51000);
 }
 
 function eleDisse() {
   setTimeout(function() {
     var elapsedTime = clock.getElapsedTime();
 
-    if ( elapsedTime < 20) {
+    if ( elapsedTime < 54) {
       var loader = new THREE.JSONLoader();
       var material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
 
@@ -577,14 +576,14 @@ function eleDisse() {
           scene.add(mesh);
       });
     }
-  }, 19000);
+  }, 53000);
 }
 
 function disseHaja() {
   setTimeout(function() {
     var elapsedTime = clock.getElapsedTime();
 
-    if ( elapsedTime < 25) {
+    if ( elapsedTime < 60) {
       var loader = new THREE.JSONLoader();
       var material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
 
@@ -601,14 +600,14 @@ function disseHaja() {
           scene.add(mesh);
       });
     }
-  }, 24000);
+  }, 59000);
 }
 
 function luz() {
   setTimeout(function() {
     var elapsedTime = clock.getElapsedTime();
 
-    if ( elapsedTime < 31) {
+    if ( elapsedTime < 61) {
       var loader = new THREE.JSONLoader();
       var material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
 
@@ -625,7 +624,7 @@ function luz() {
           scene.add(mesh);
       });
     }
-  }, 30000);
+  }, 60000);
 }
 
 function startRender() {
@@ -642,7 +641,7 @@ function startRender() {
     var materialLuz = new THREE.MeshBasicMaterial( { color: 0x000000 } );
 
     if ( elapsedTime < 120 ) {
-      for( var i = 0 ; i < 4 ; i++) {
+      for( var i = 0 ; i < 2 ; i++) {
         loader.load('json/luz.json', function(geometry) {
             var luzMesh = new THREE.Mesh(geometry, materialLuz);
             var scale = 10;
@@ -659,13 +658,10 @@ function startRender() {
               if( luzMesh ) {
                 materialLuz.color.setHex(0xffffff);
               }
-              if( material ) {
-                material.uniforms.color.value = new THREE.Color(0xffffff);
-              }
               if( sphereMaterial ) {
                 sphereMaterial.uniforms.color.value = new THREE.Color(0xffffff);
               }
-            }, 30000);
+            }, 146500);
         });
       }
     }
@@ -674,6 +670,26 @@ function startRender() {
     eleDisse();
     disseHaja();
     luz();
+
+    setTimeout(function() {
+        document.getElementById('flashTwo').classList.add('second-flash');
+    }, 146000);
+
+    setTimeout(function() {
+        document.getElementById('text1').classList.add('invisible');
+    }, 156000);
+
+    setTimeout(function() {
+        document.getElementById('text2').classList.add('invisible');
+    }, 171000);
+
+    setTimeout(function() {
+        document.getElementById('text3').classList.add('invisible-long');
+    }, 186000);
+
+    setTimeout(function() {
+        document.getElementById('text4').classList.add('invisible');
+    }, 201000);
 
 
 
