@@ -524,17 +524,19 @@ function backMusic() {
     var backMusic = new Audio("assets/sounds/beethoven.mp3");
     var voices = new Audio("assets/sounds/grandpa.mp3");
     backMusic.play();
+    backMusic.volume = 1;
 
     setTimeout(function() {
         voices.play();
-    }, 44800);
+        voices.volume = 1;
+    }, 78000);
 }
 
 function eEleDisse() {
   setTimeout(function() {
     var elapsedTime = clock.getElapsedTime();
 
-    if ( elapsedTime < 52) {
+    if ( elapsedTime < 93) {
       var loader = new THREE.JSONLoader();
       var material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
 
@@ -544,21 +546,21 @@ function eEleDisse() {
           mesh.scale.x = scale;
           mesh.scale.y = scale;
           mesh.scale.z = scale;
-          mesh.position.x = 100;
-          mesh.position.y = 60;
-          mesh.position.z = 50;
+          mesh.position.x = Math.random() * 800 - 400;
+          mesh.position.y = Math.random() * 800 - 400;
+          mesh.position.z = Math.random() * 800 - 400;
           mesh.rotation.y = 90;
           scene.add(mesh);
       });
     }
-  }, 51000);
+  }, 89100);
 }
 
 function eleDisse() {
   setTimeout(function() {
     var elapsedTime = clock.getElapsedTime();
 
-    if ( elapsedTime < 54) {
+    if ( elapsedTime < 96) {
       var loader = new THREE.JSONLoader();
       var material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
 
@@ -568,21 +570,21 @@ function eleDisse() {
           mesh.scale.x = scale;
           mesh.scale.y = scale;
           mesh.scale.z = scale;
-          mesh.position.x = 120;
-          mesh.position.y = 40;
-          mesh.position.z = 80;
+          mesh.position.x = Math.random() * 800 - 400;
+          mesh.position.y = Math.random() * 800 - 400;
+          mesh.position.z = Math.random() * 800 - 400;
           mesh.rotation.y = 10;
           scene.add(mesh);
       });
     }
-  }, 53000);
+  }, 90000);
 }
 
 function disseHaja() {
   setTimeout(function() {
     var elapsedTime = clock.getElapsedTime();
 
-    if ( elapsedTime < 60) {
+    if ( elapsedTime < 107) {
       var loader = new THREE.JSONLoader();
       var material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
 
@@ -592,21 +594,21 @@ function disseHaja() {
           mesh.scale.x = scale;
           mesh.scale.y = scale;
           mesh.scale.z = scale;
-          mesh.position.x = 100;
-          mesh.position.y = 20;
-          mesh.position.z = 50;
+          mesh.position.x = Math.random() * 800 - 400;
+          mesh.position.y = Math.random() * 800 - 400;
+          mesh.position.z = Math.random() * 800 - 400;
           mesh.rotation.y = 60;
           scene.add(mesh);
       });
     }
-  }, 59000);
+  }, 102000);
 }
 
 function luz() {
   setTimeout(function() {
     var elapsedTime = clock.getElapsedTime();
 
-    if ( elapsedTime < 61) {
+    if ( elapsedTime < 110) {
       var loader = new THREE.JSONLoader();
       var material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
 
@@ -616,14 +618,14 @@ function luz() {
           mesh.scale.x = scale;
           mesh.scale.y = scale;
           mesh.scale.z = scale;
-          mesh.position.x = 110;
-          mesh.position.y = 0;
-          mesh.position.z = 50;
+          mesh.position.x = Math.random() * 800 - 400;
+          mesh.position.y = Math.random() * 800 - 400;
+          mesh.position.z = Math.random() * 800 - 400;
           mesh.rotation.y = 65;
           scene.add(mesh);
       });
     }
-  }, 60000);
+  }, 105000);
 }
 
 function startRender() {
@@ -671,8 +673,20 @@ function startRender() {
     luz();
 
     setTimeout(function() {
+        document.getElementById('text10').classList.add('invisible');
+    }, 6000);
+
+    setTimeout(function() {
+        document.getElementById('text11').classList.add('invisible');
+    }, 18000);
+
+    setTimeout(function() {
+        document.getElementById('text12').classList.add('invisible-long');
+    }, 30000);
+
+    setTimeout(function() {
         document.getElementById('flashTwo').classList.add('second-flash');
-    }, 146000);
+    }, 143000);
 
     setTimeout(function() {
         document.getElementById('text1').classList.add('invisible');
@@ -684,11 +698,11 @@ function startRender() {
 
     setTimeout(function() {
         document.getElementById('text3').classList.add('invisible-long');
-    }, 186000);
+    }, 185000);
 
     setTimeout(function() {
         document.getElementById('text4').classList.add('invisible');
-    }, 216000);
+    }, 215000);
 
 
 

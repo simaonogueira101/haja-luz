@@ -64,7 +64,7 @@ a {
 }
 .flash-over {
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity 10s;
 }
 .flash-overlay {
   background: white;
@@ -86,7 +86,7 @@ a {
 }
 
 .second-flash {
-  animation: secondFlash 75s;
+  animation: secondFlash 70s;
 }
 
 .container-text {
@@ -106,7 +106,7 @@ a {
   font-weight: bold;
   font-size: 0.75rem;
   padding: 12px;
-  background: orange;
+  background: white;
 }
 
 .invisible-long {
@@ -139,7 +139,7 @@ a {
   99% {
     opacity: 1;
   }
-  100%; {
+  100% {
     opacity: 0;
   }
 }
