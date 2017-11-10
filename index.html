@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>TMD 2</title>
+		<title>luz</title>
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" href="css/style-THREE.css">
 		<link rel="stylesheet" href="css/style.css">
@@ -8,7 +8,102 @@
 
 
 		<body>
+
+			<script type="text/javascript">
+				var state = 0;
+				function infoClick() {
+					if(state == 0) {
+						document.getElementById('info').style.display = 'flex';
+						document.getElementById("infoButton").innerHTML = "x";
+						document.getElementById("infoButton").style.backgroundColor = "black";
+						document.getElementById("infoButton").style.color = "white";
+						state = 1;
+					}else {
+						document.getElementById('info').style.display = 'none';
+						document.getElementById("infoButton").innerHTML = "info";
+						document.getElementById("infoButton").style.backgroundColor = "white";
+						document.getElementById("infoButton").style.color = "black";
+						state = 0;
+					}
+				}
+				setTimeout(function(){
+				    document.getElementById("infoButton").style.opacity = "1";
+				}, 215000);
+			</script>
+
+			<div class="info-overlay" id="info">
+				<div>
+					<p>
+						“A luz é uma onda eletromagnética (…) que se inclui num determinado
+						intervalo dentro do qual o olho humano é a ela sensível.”
+						A dispersão das palavras no poema de Alberto Pimenta reverte exatamente
+						para esta definição. A tecnicidade que se pode atribuir à ideia de ver,
+						quebrada pelo estático do poema, reconstruída pela interpretação concedida
+						- novamente - pela distribuição de palavras e pela sua repetição,
+						críticos para a leitura e compreensão do texto.
+					</p>
+					<br>
+					<p>
+						À vontade que assim surge de ilustrar e animar este conceito alia-se a
+						componente pessoal e individual da relação entre mim e o meu avô. Por
+						ser um tão grande amigo e por ter sido quem ao colo me tinha quando em
+						criança pela primeira vez disse uma palavra - luz, este universo em que
+						o poema passa a viver, tirado do papel, exportado para um mundo tridimensional
+						- pluridimensional, se se contar com fatores como a música e a leitura
+						- reflete não só a longa relação que temos, mas também a efêmera
+						juventude que recordamos.
+					</p>
+					<br>
+					<p>
+						Um académico e escritor a quem a idade roubou por metade a visão e a
+						destreza, que outrora trabalhava em laboratório com “peças com menos de
+						8 mícrons de milimetro” - que recorda com saudade e orgulho -  sente-se
+						agora incapaz de ler o que lhe peço. Da mesma forma se apresenta escondido
+						o poema por detrás de uma nuvem de escuridão, de confusão, e do que
+						outrora foram as ideias e a troca das mesmas entre colegas, amigos, e
+						com o seu neto.
+					</p>
+					<br>
+					<p>
+						Esta nuvem foi desenvolvida a partir de um algoritmo generativo, sendo
+						assim composta por metaballs que interagem umas com as outras de forma
+						dinâmica e imprevisível ao longo da animação. Geralmente pensadas para
+						representar dados e estando fortemente ligadas à análise dos mesmos,
+						criam novamente uma ligação entre o passado e o presente, entre a
+						aquisição e a transmissão de conhecimentos. Ao mesmo tempo um novo elemento
+						é introduzido - o som. A 5ª Sinfonia de Beethoven (interpretada pela
+						Skidmore College Orchestra), o compositor mais ouvido no escritório do
+						meu avô, e a voz que já tanto me disse.
+					</p>
+					<br>
+					<p>
+						Do ambiente criado no ecrã e do registo sonoro obtido da leitura do poema,
+						tenta-se gerar uma ideia abstrata de conversa, a entrada no e a visão do interior do subconsciente,
+						do ponto de vista de quem ouve, em que o assunto é o poema em questão.
+					</p>
+					<br>
+					<p>
+						Obrigado, avô.
+					</p>
+					<br>
+				</div>
+
+				<p>animação tipográfica do poema "luz" de Alberto Pimenta &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+				<p>&nbsp; &nbsp; &nbsp;do livro Heterofonia, publicado em 1979</p>
+				<br>
+				<p>luz, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+				<p>realizada por Simão Nogueira</p>
+				<p>como trabalho académico no âmbito da unidade curricular tipografia em meios digitais</p>
+				<p>do 2º ano da licenciatura em design e multimédia da</p>
+				<p>FCTUC – Faculdade de Ciências e Tecnologia da Universidade de Coimbra,</p>
+				<p>sob orientação dos docentes Nuno Coelho e Paul Hardman</p>
+				<p>(novembro de 2017)</p>
+			</div>
+
 			<div id="container">
+
+				<div onclick="infoClick()" class="info-button" id="infoButton">info</div>
+
 				<div class="container-overlay" style="background: rgba(0,0,0,0); z-index: 200;">
 					<div class="container-center">
 						<a class="start-button" onclick="startButton(); backMusic();" id="start">
@@ -20,19 +115,19 @@
 
 				<div class="container-overlay container-center container-text" id="text10">
 					<div class="indication">
-						luz, a minha primeira palavra
+						a minha primeira palavra
 					</div>
 				</div>
 
 				<div class="container-overlay container-center container-text" id="text11">
 					<div class="indication">
-						Beethoven, a trilha sonora de tantas conversas com ele
+						a trilha sonora de tantas conversas com ele
 					</div>
 				</div>
 
 				<div class="container-overlay container-center container-text" id="text12">
 					<div class="indication">
-						a voz amiga do meu avô
+						a voz antiga do meu avô
 					</div>
 				</div>
 

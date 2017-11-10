@@ -261,16 +261,27 @@ function init() {
 
     var c = container;
 
-    function goFullscreen(e) {
-        c.onwebkitfullscreenchange = function(e) {
-            c.onwebkitfullscreenchange = function() {};
-        };
-        c.onmozfullscreenchange = function(e) {
-            c.onmozfullscreenchange = function() {};
-        };
-        if (c.webkitRequestFullScreen) c.webkitRequestFullScreen();
-        if (c.mozRequestFullScreen) c.mozRequestFullScreen();
-        e.preventDefault();
+    function goFullscreen() {
+      var el = document.body;
+
+      // Supports most browsers and their versions.
+      var requestMethod = el.requestFullScreen || el.webkitRequestFullScreen
+      || el.mozRequestFullScreen || el.msRequestFullScreen;
+
+      if (requestMethod) {
+
+        // Native full screen.
+        requestMethod.call(el);
+
+      } else if (typeof window.ActiveXObject !== "undefined") {
+
+        // Older IE.
+        var wscript = new ActiveXObject("WScript.Shell");
+
+        if (wscript !== null) {
+          wscript.SendKeys("{F11}");
+        }
+      }
     }
 
     document.getElementById('fullscreenBtn').addEventListener('click', goFullscreen)
